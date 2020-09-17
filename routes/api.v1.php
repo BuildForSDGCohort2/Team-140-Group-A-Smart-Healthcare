@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('auth/login', [AuthController::class, 'auth'])->name('auth_personal_token');
+Route::middleware('auth:api')->group( function (){
+
+});
 
 //Route::fallback(function (){
 //    return response()->json([
@@ -25,5 +27,5 @@ Route::post('auth/login', [AuthController::class, 'auth'])->name('auth_personal_
 //        'errors' => [
 //            'message' => 'API endpoint not found'
 //        ],
-//    ], 404);
+//    ])->setStatusCode(404);
 //});
